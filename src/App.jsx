@@ -1,32 +1,26 @@
-import { createContext, useState } from 'react'
-import './App.css'
-import ChaildA from './Components/ChaildA';
+import { createContext, useState } from "react";
+import "./App.css";
+import ChaildA from "./Components/ChaildA";
 
-// step 1: creact the context
 
-  const Themecontext = createContext();
 
-// step2 : wrap all the chaild inside a probider
-// step 3 : pass the value
-// step 4 : goto to inside the consumer and consume the value
+export const ThemeContext = createContext();
 
 function App() {
- 
- const [theme , uestheme] = useState('light'); 
-  return (
- 
-    <Themecontext.Provider value={{theme ,uestheme}}>
-      <div id='container' style={{backgroundColor : theme === 'light' ? "beige" : 'black'}}>
-        <ChaildA></ChaildA>
-      </div>
-      
-    </Themecontext.Provider>
-  
+  const [theme, setTheme] = useState("light");
+  const [username, setUsername] = useState("Krish");
 
-  )
+  const toggleTheme = () => {
+    setTheme(prev => (prev === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme, username, setUsername }}>
+      <div id="container" className={theme}>
+        <ChaildA />
+      </div>
+    </ThemeContext.Provider>
+  );
 }
 
-export default App
-export {Themecontext}
-
-
+export default App;

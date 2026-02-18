@@ -1,13 +1,15 @@
-import React from 'react'
-import ChailB from './ChailB'
+import React from "react";
+import ChaildB from "./ChaildB";
 
-const ChaildA = () => {
-  
+
+
+const ChildA = () => {
   return (
-    <div>
-      <ChailB />
+    <div className="card">
+      <h2>Level A</h2>
+      <ChaildB/>
     </div>
-  )
-}
+  );
+};
 
-export default ChaildA
+export default ChildA;

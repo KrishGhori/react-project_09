@@ -1,27 +1,28 @@
-import React, { useContext, useState } from 'react'
-import { Themecontext } from '../App';
+import React, { useContext } from "react";
+import { ThemeContext } from "../App";
 
-
-
-
-
-const ChaildC = () => {
-
-     const {theme , uestheme}  = useContext(Themecontext);
-    function handletheme (){
-        if(theme === 'light')
-          uestheme('Dark')
-        else
-          uestheme('light')
-    }
+const ChildC = () => {
+  const { theme, toggleTheme, username, setUsername } = useContext(ThemeContext);
 
   return (
-    <div>
-      <button onClick={handletheme}>change theme {theme}</button>
-     
+    <div className="card">
+      <h4>Level C</h4>
+
+      <p>Current Theme: {theme}</p>
+      <p>User: {username}</p>
+
+      <button className="btn" onClick={toggleTheme}>
+        Toggle Theme
+      </button>
+
+      <button
+        className="btn secondary"
+        onClick={() => setUsername("Developer")}
+      >
+        Change Name
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default ChaildC
-
+export default ChildC;
